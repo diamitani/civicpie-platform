@@ -10,11 +10,10 @@ export const districtMeta = {
   stateAbbr: 'IL',
   slug: 'illinois/chicago/48thward',
   tagline: 'Edgewater & Andersonville — Chicago\'s North Side',
-  description: 'The 48th Ward encompasses the vibrant neighborhoods of Edgewater and Andersonville on Chicago\'s North Side. Known for its diversity, walkability, and active community engagement, the 48th Ward is home to over 55,000 residents and nearly 1,000 small businesses and cultural institutions.',
+  description: 'The 48th Ward Civic Data Platform is a resident-focused resource for navigating local government, discovering neighborhood institutions, and participating in the decision-making process. Explore our community directory, track local legislation, and get involved in your ward.',
   population: '55,000+',
   neighborhoods: ['Edgewater', 'Andersonville', 'Lakewood-Balmoral', 'Bryn Mawr Historic District', 'Magnolia Glen'],
-  totalBusinesses: 982,
-  totalResidentialBuildings: 3250,
+  totalEntities: 982,
   boundaries: {
     north: 'Devon Avenue',
     south: 'Foster Avenue (approx)',
@@ -329,10 +328,9 @@ export const wardBusinesses = [
 
 export const quickStats = [
   { label: 'Population', value: '55,000+' },
-  { label: 'Small Businesses', value: '982' },
-  { label: 'Residential Bldgs', value: '3,250' },
+  { label: 'Community Entities', value: '982' },
   { label: 'Precincts', value: '34' },
   { label: 'Pedestrian Fatalities', value: '0' },
-  { label: 'PB Votes (2026)', value: '1,277' },
-  { label: 'APS Signals', value: '12' },
+  { label: 'Community Budget Votes', value: '1,277' },
+  { label: 'Accessible Signals', value: '12' },
 ];

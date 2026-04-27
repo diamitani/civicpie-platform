@@ -11,7 +11,7 @@ export default function Navbar({ districtName, stateName }) {
         <Link to="/" className="navbar-brand">
           <img src="/assets/48th-ward-logo-true.png" alt="48th Ward" className="brand-logo" />
           <span className="brand-text">
-            <span className="brand-name">Civic Pie</span>
+            <span className="brand-name">48th Ward Civic Data</span>
             <span className="brand-district">{districtName} · {stateName}</span>
           </span>
         </Link>

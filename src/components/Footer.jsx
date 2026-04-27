@@ -7,9 +7,9 @@ export default function Footer({ districtMeta }) {
             <div className="footer-logo">
               <img src="/assets/leni-48th-ward-logo.png" alt="Alderwoman Leni Manaa-Hoppenworth — 48th Ward" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
               <div>
-                <h4 style={{ fontSize: '1rem', margin: 0 }}>Civic Pie</h4>
+                <h4 style={{ fontSize: '1rem', margin: 0 }}>48th Ward Civic Data Platform</h4>
                 <p style={{ fontSize: '0.75rem', color: 'var(--cp-gray-600)', margin: 0 }}>
-                  Get a slice of gov.
+                  Resident-Focused Neighborhood Intelligence
                 </p>
               </div>
             </div>
@@ -42,10 +42,7 @@ export default function Footer({ districtMeta }) {
         </div>
 
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Civic Pie — Non-partisan civic engagement for every district.</p>
-          <p style={{ fontSize: '0.6875rem', color: 'var(--cp-gray-500)' }}>
-            Nothing is more American than pie. 🇺🇸
-          </p>
+          <p>© {new Date().getFullYear()} 48th Ward Civic Data Platform — Verified Community Resource.</p>
         </div>
       </div>
 

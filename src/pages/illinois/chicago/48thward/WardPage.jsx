@@ -1,13 +1,12 @@
+import { Link } from 'react-router-dom';
+import { ChevronRight } from 'lucide-react';
 import Navbar from '../../../../components/Navbar';
 import Footer from '../../../../components/Footer';
 import HeroSection from '../../../../components/HeroSection';
 import OfficialsSection from '../../../../components/OfficialsSection';
 import EventsSection from '../../../../components/EventsSection';
 import AgenciesSection from '../../../../components/AgenciesSection';
-import LegislationSection from '../../../../components/LegislationSection';
-import BenefitsSection from '../../../../components/BenefitsSection';
 import CommunitySection from '../../../../components/CommunitySection';
-import BusinessDirectory from '../../../../components/BusinessDirectory';
 import {
   districtMeta,
   officials,
@@ -16,7 +15,6 @@ import {
   legislation,
   benefits,
   communityHighlights,
-  wardBusinesses,
   quickStats,
 } from '../../../../data/illinois/chicago/48thward/wardData';
 
@@ -28,10 +26,46 @@ export default function WardPage() {
         <HeroSection district={districtMeta} stats={quickStats} />
         <OfficialsSection officials={officials} />
         <EventsSection events={events} />
-        <BusinessDirectory businesses={wardBusinesses} />
+
+        {/* Community Directory CTA Section */}
+        <section id="directory-cta" className="section" style={{ background: 'var(--cp-bg-alt)' }}>
+          <div className="container">
+            <div className="section-header">
+              <span className="section-tag">Community Resource</span>
+              <h2 className="section-title">Explore the 48th Ward</h2>
+              <p className="section-subtitle">
+                Access a comprehensive, resident-verified directory of our neighborhood's schools, houses of worship, arts organizations, and local businesses.
+              </p>
+            </div>
+
+            <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
+              <Link to="/directory" className="btn btn-primary btn-lg">
+                Open Community Directory <ChevronRight size={18} />
+              </Link>
+            </div>
+
+            <div className="directory-preview" style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+              gap: '1.25rem', 
+              marginTop: '3.5rem' 
+            }}>
+              {[
+                { name: 'Education & Youth', slug: 'Education & Youth' },
+                { name: 'Civic & Spiritual', slug: 'Civic & Spiritual' },
+                { name: 'Arts & Culture', slug: 'Arts & Culture' },
+                { name: 'Dining & Nightlife', slug: 'Dining & Nightlife' }
+              ].map(cat => (
+                <Link to={`/directory/${encodeURIComponent(cat.slug)}`} key={cat.name} className="glass-card" style={{ padding: '1.75rem', textAlign: 'center', textDecoration: 'none', color: 'inherit' }}>
+                  <h3 style={{ fontSize: '1rem', marginBottom: '0.4rem' }}>{cat.name}</h3>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--cp-blue)', fontWeight: 600 }}>Explore →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <AgenciesSection agencies={agencies} />
-        <LegislationSection legislation={legislation} />
-        <BenefitsSection benefits={benefits} />
         <CommunitySection highlights={communityHighlights} />
 
         {/* CTA Banner */}

@@ -6,7 +6,7 @@ export default function HeroSection({ district, stats }) {
       <div className="container">
         <div className="hero-content animate-in">
           <div className="hero-breadcrumb">
-            <span>Civic Pie</span>
+            <span>48th Ward Civic Data Platform</span>
             <span className="bc-sep">/</span>
             <span>{district.state}</span>
             <span className="bc-sep">/</span>
