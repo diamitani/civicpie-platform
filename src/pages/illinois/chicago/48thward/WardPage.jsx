@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
 import Navbar from '../../../../components/Navbar';
 import Footer from '../../../../components/Footer';
 import HeroSection from '../../../../components/HeroSection';
+import FeaturesSection from '../../../../components/FeaturesSection';
+import ManifestoSection from '../../../../components/ManifestoSection';
+import ProtocolSection from '../../../../components/ProtocolSection';
+import GetInvolvedSection from '../../../../components/GetInvolvedSection';
 import OfficialsSection from '../../../../components/OfficialsSection';
 import EventsSection from '../../../../components/EventsSection';
 import AgenciesSection from '../../../../components/AgenciesSection';
@@ -12,8 +15,7 @@ import {
   officials,
   events,
   agencies,
-  legislation,
-  benefits,
+  civicGroups,
   communityHighlights,
   quickStats,
 } from '../../../../data/illinois/chicago/48thward/wardData';
@@ -24,77 +26,141 @@ export default function WardPage() {
       <Navbar districtName={districtMeta.name} stateName={districtMeta.state} />
       <main>
         <HeroSection district={districtMeta} stats={quickStats} />
+        <FeaturesSection />
         <OfficialsSection officials={officials} />
         <EventsSection events={events} />
+        <ManifestoSection />
+        <ProtocolSection />
 
-        {/* Community Directory CTA Section */}
-        <section id="directory-cta" className="section" style={{ background: 'var(--cp-bg-alt)' }}>
+        {/* Community Directory CTA */}
+        <section style={{ padding: '5rem 0', background: 'var(--cp-bg-alt)' }}>
           <div className="container">
-            <div className="section-header">
-              <span className="section-tag">Community Resource</span>
-              <h2 className="section-title">Explore the 48th Ward</h2>
-              <p className="section-subtitle">
-                Access a comprehensive, resident-verified directory of our neighborhood's schools, houses of worship, arts organizations, and local businesses.
-              </p>
-            </div>
-
-            <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
-              <Link to="/directory" className="btn btn-primary btn-lg">
-                Open Community Directory <ChevronRight size={18} />
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '1.5rem',
+              marginBottom: '2.5rem',
+            }}>
+              <div>
+                <div style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.14em',
+                  color: 'var(--cp-primary)',
+                  textTransform: 'uppercase',
+                  marginBottom: '0.5rem',
+                }}>
+                  // COMMUNITY DIRECTORY
+                </div>
+                <h2 style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: 700,
+                  fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                  color: 'var(--cp-dark)',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.15,
+                }}>
+                  Find what's in your ward
+                </h2>
+                <p style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.9375rem',
+                  color: 'var(--cp-gray-500)',
+                  marginTop: '0.5rem',
+                  maxWidth: '520px',
+                  lineHeight: 1.65,
+                }}>
+                  Schools, houses of worship, arts organizations, local businesses, and community resources — all resident-verified and searchable.
+                </p>
+              </div>
+              <Link
+                to="/directory"
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: 600,
+                  fontSize: '0.9375rem',
+                  background: 'var(--cp-dark)',
+                  color: 'white',
+                  padding: '0.875rem 1.75rem',
+                  borderRadius: '9999px',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.25s ease',
+                  flexShrink: 0,
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'var(--cp-primary)'; e.currentTarget.style.transform = 'scale(1.03)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'var(--cp-dark)'; e.currentTarget.style.transform = 'scale(1)'; }}
+              >
+                Open Full Directory
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Link>
             </div>
 
-            <div className="directory-preview" style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-              gap: '1.25rem', 
-              marginTop: '3.5rem' 
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '1rem',
             }}>
               {[
-                { name: 'Education & Youth', slug: 'Education & Youth' },
-                { name: 'Civic & Spiritual', slug: 'Civic & Spiritual' },
-                { name: 'Arts & Culture', slug: 'Arts & Culture' },
-                { name: 'Dining & Nightlife', slug: 'Dining & Nightlife' }
+                { name: 'Education & Youth', icon: '🏫', count: '47' },
+                { name: 'Civic & Spiritual', icon: '🏛️', count: '83' },
+                { name: 'Arts & Culture', icon: '🎭', count: '62' },
+                { name: 'Dining & Nightlife', icon: '🍽️', count: '138' },
               ].map(cat => (
-                <Link to={`/directory/${encodeURIComponent(cat.slug)}`} key={cat.name} className="glass-card" style={{ padding: '1.75rem', textAlign: 'center', textDecoration: 'none', color: 'inherit' }}>
-                  <h3 style={{ fontSize: '1rem', marginBottom: '0.4rem' }}>{cat.name}</h3>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--cp-blue)', fontWeight: 600 }}>Explore →</span>
+                <Link
+                  to={`/directory/${encodeURIComponent(cat.name)}`}
+                  key={cat.name}
+                  style={{
+                    background: 'white',
+                    border: '1px solid rgba(0,0,0,0.07)',
+                    borderRadius: '1.5rem',
+                    padding: '1.5rem',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.875rem',
+                    transition: 'all 0.25s cubic-bezier(0.25,0.46,0.45,0.94)',
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(0,153,216,0.2)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.05)';
+                    e.currentTarget.style.borderColor = 'rgba(0,0,0,0.07)';
+                  }}
+                >
+                  <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>{cat.icon}</span>
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '0.9rem', color: 'var(--cp-dark)' }}>
+                      {cat.name}
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5625rem', color: 'var(--cp-gray-400)', letterSpacing: '0.06em', marginTop: '2px' }}>
+                      {cat.count}+ entries
+                    </div>
+                  </div>
+                  <svg style={{ marginLeft: 'auto', flexShrink: 0 }} width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7h8M7 3l4 4-4 4" stroke="var(--cp-gray-400)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <AgenciesSection agencies={agencies} />
+        <AgenciesSection agencies={agencies} civicGroups={civicGroups} />
+        <GetInvolvedSection />
         <CommunitySection highlights={communityHighlights} />
-
-        {/* CTA Banner */}
-        <section className="section" style={{ paddingBottom: '3rem' }}>
-          <div className="container">
-            <div className="glass-card" style={{
-              padding: '2.5rem',
-              textAlign: 'center',
-              background: 'linear-gradient(135deg, var(--cp-blue-glow), rgba(8, 185, 236, 0.05))',
-              border: '1px solid var(--cp-card-border)',
-            }}>
-              <h2 style={{ marginBottom: '0.75rem' }}>Get Involved in Your Community</h2>
-              <p style={{ maxWidth: 560, margin: '0 auto 1.5rem', fontSize: '1rem' }}>
-                Build a culture where people want to know about their communities, activate resources relevant to them, and participate in the political process.
-              </p>
-              <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a href="https://ova.elections.il.gov/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  Register to Vote
-                </a>
-                <a href="https://www.the48thward.org/service-request" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                  Submit a Service Request
-                </a>
-                <a href="https://mailchi.mp/the48thward/newsletter-signup" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                  Subscribe to Newsletter
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer districtMeta={districtMeta} />
     </>
