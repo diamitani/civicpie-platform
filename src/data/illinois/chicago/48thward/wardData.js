@@ -1043,10 +1043,10 @@ export const wardBusinesses = [
 ];
 
 export const quickStats = [
-  { label: 'Population', value: '55,000+' },
-  { label: 'Community Entities', value: '982' },
-  { label: 'Precincts', value: '34' },
-  { label: 'Pedestrian Fatalities', value: '0' },
-  { label: 'Community Budget Votes', value: '1,277' },
-  { label: 'Accessible Signals', value: '12' },
+  { label: 'Residents', value: '55,000+' },
+  { label: 'Community Orgs', value: '982' },
+  { label: 'Voting Precincts', value: '34' },
+  { label: 'Community Budget', value: '$1M' },
+  { label: 'Agencies & Resources', value: '51+' },
+  { label: 'Civic Groups', value: '25' },
 ];
