@@ -7,6 +7,7 @@ import AgenciesSection from '../../../../components/AgenciesSection';
 import LegislationSection from '../../../../components/LegislationSection';
 import BenefitsSection from '../../../../components/BenefitsSection';
 import CommunitySection from '../../../../components/CommunitySection';
+import BusinessDirectory from '../../../../components/BusinessDirectory';
 import {
   districtMeta,
   officials,
@@ -15,6 +16,7 @@ import {
   legislation,
   benefits,
   communityHighlights,
+  wardBusinesses,
   quickStats,
 } from '../../../../data/illinois/chicago/48thward/wardData';
 
@@ -26,6 +28,7 @@ export default function WardPage() {
         <HeroSection district={districtMeta} stats={quickStats} />
         <OfficialsSection officials={officials} />
         <EventsSection events={events} />
+        <BusinessDirectory businesses={wardBusinesses} />
         <AgenciesSection agencies={agencies} />
         <LegislationSection legislation={legislation} />
         <BenefitsSection benefits={benefits} />

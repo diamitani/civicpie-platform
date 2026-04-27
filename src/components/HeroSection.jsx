@@ -1,4 +1,4 @@
-import { MapPin, Users, Vote, ArrowRight, ExternalLink } from 'lucide-react';
+import { MapPin, Users, Vote, ArrowRight, ExternalLink, Map } from 'lucide-react';
 
 export default function HeroSection({ district, stats }) {
   return (
@@ -12,7 +12,7 @@ export default function HeroSection({ district, stats }) {
             <span className="bc-sep">/</span>
             <span>{district.city}</span>
             <span className="bc-sep">/</span>
-            <span className="bc-active">{district.name}</span>
+            <span>{district.name}</span>
           </div>
 
           <h1 className="hero-title">
@@ -34,6 +34,9 @@ export default function HeroSection({ district, stats }) {
           <div className="hero-actions">
             <a href="https://ova.elections.il.gov/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
               <Vote size={16} /> Register to Vote
+            </a>
+            <a href={district.boundaries.mapUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+              <Map size={16} /> View Ward Map
             </a>
             <a href="#officials" className="btn btn-secondary">
               Meet Your Officials <ArrowRight size={14} />
