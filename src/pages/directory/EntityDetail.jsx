@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, MapPin, Globe, Phone, ExternalLink, Calendar, Info, Share2, Heart } from 'lucide-react';
+import { ArrowLeft, MapPin, Globe, Phone, ExternalLink, Calendar, Info, Share2, Heart, Users } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { directoryGroups } from '../../data/illinois/chicago/48thward/directoryData';
