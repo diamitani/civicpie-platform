@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civic Pie — 48th Ward, Chicago | Hyper-Local Civic Engagement</title>
+    <meta name="description" content="Civic Pie is a non-partisan civic engagement platform for the 48th Ward in Chicago. Find your officials, events, agencies, legislation, benefits, and community resources.">
+    <meta name="theme-color" content="#0a1628">
+  <style type="text/css" data-vite-dev-id="/Users/pdiamitani/Desktop/Patrick/48th Ward/civicpie/src/styles/design.css">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
+/* Civic Pie — Design System */
+:root {
+  /* Brand Colors */
+  --cp-navy: #0a1628;
+  --cp-navy-light: #132042;
+  --cp-blue: #2563eb;
+  --cp-blue-light: #3b82f6;
+  --cp-blue-glow: rgba(37, 99, 235, 0.15);
+  --cp-teal: #0d9488;
+  --cp-teal-light: #14b8a6;
+  --cp-amber: #f59e0b;
+  --cp-amber-light: #fbbf24;
+  --cp-red: #ef4444;
+  --cp-green: #22c55e;
+  --cp-purple: #8b5cf6;
+  --cp-rose: #f43f5e;
+
+  /* Neutrals */
+  --cp-white: #ffffff;
+  --cp-gray-50: #f8fafc;
+  --cp-gray-100: #f1f5f9;
+  --cp-gray-200: #e2e8f0;
+  --cp-gray-300: #cbd5e1;
+  --cp-gray-400: #94a3b8;
+  --cp-gray-500: #64748b;
+  --cp-gray-600: #475569;
+  --cp-gray-700: #334155;
+  --cp-gray-800: #1e293b;
+  --cp-gray-900: #0f172a;
+
+  /* Surfaces */
+  --cp-surface: rgba(255,255,255,0.03);
+  --cp-surface-hover: rgba(255,255,255,0.06);
+  --cp-surface-active: rgba(255,255,255,0.09);
+  --cp-glass: rgba(10, 22, 40, 0.75);
+  --cp-glass-border: rgba(255,255,255,0.08);
+  --cp-card-bg: rgba(19, 32, 66, 0.6);
+  --cp-card-border: rgba(255,255,255,0.06);
+
+  /* Typography */
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 40px rgba(37,99,235,0.15);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--cp-navy);
+  color: var(--cp-gray-200);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Background gradient mesh */
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(37,99,235,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(13,148,136,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(139,92,246,0.05) 0%, transparent 60%),
+    var(--cp-navy);
+}
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--cp-white);
+  line-height: 1.2;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.125rem, 2vw, 1.5rem); }
+h4 { font-size: 1.125rem; }
+p { color: var(--cp-gray-300); line-height: 1.7; }
+a { color: var(--cp-blue-light); text-decoration: none; transition: color var(--duration-fast); }
+a:hover { color: var(--cp-teal-light); }
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+/* Glass Card */
+.glass-card {
+  background: var(--cp-card-bg);
+  border: 1px solid var(--cp-card-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+.glass-card:hover {
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--cp-blue), var(--cp-blue-light));
+  color: var(--cp-white);
+  box-shadow: 0 2px 12px rgba(37,99,235,0.3);
+}
+.btn-primary:hover {
+  box-shadow: 0 4px 20px rgba(37,99,235,0.5);
+  transform: translateY(-1px);
+  color: var(--cp-white);
+}
+.btn-secondary {
+  background: var(--cp-surface);
+  color: var(--cp-gray-200);
+  border: 1px solid var(--cp-glass-border);
+}
+.btn-secondary:hover {
+  background: var(--cp-surface-hover);
+  border-color: rgba(255,255,255,0.15);
+  color: var(--cp-white);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--cp-gray-300);
+}
+.btn-ghost:hover { color: var(--cp-white); background: var(--cp-surface); }
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.badge-blue { background: rgba(37,99,235,0.15); color: var(--cp-blue-light); }
+.badge-teal { background: rgba(13,148,136,0.15); color: var(--cp-teal-light); }
+.badge-amber { background: rgba(245,158,11,0.15); color: var(--cp-amber-light); }
+.badge-green { background: rgba(34,197,94,0.15); color: var(--cp-green); }
+.badge-red { background: rgba(239,68,68,0.15); color: var(--cp-red); }
+.badge-purple { background: rgba(139,92,246,0.15); color: var(--cp-purple); }
+/* Section styling */
+.section { padding: var(--space-3xl) 0; }
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.section-title .icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--cp-blue-glow);
+  color: var(--cp-blue-light);
+}
+/* Tab navigation */
+.tab-nav {
+  display: flex;
+  gap: var(--space-xs);
+  padding: 4px;
+  background: var(--cp-surface);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--cp-glass-border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tab-btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--cp-gray-400);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--cp-gray-200); }
+.tab-btn.active {
+  background: var(--cp-blue);
+  color: var(--cp-white);
+  box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+}
+/* Grid layouts */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-lg); }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-lg); }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-md); }
+/* Status indicators */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-active { background: var(--cp-green); box-shadow: 0 0 8px rgba(34,197,94,0.5); }
+.status-pending { background: var(--cp-amber); box-shadow: 0 0 8px rgba(245,158,11,0.5); }
+.status-completed { background: var(--cp-blue-light); }
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(37,99,235,0.1); }
+  50% { box-shadow: 0 0 40px rgba(37,99,235,0.2); }
+}
+.animate-in {
+  animation: fadeInUp 0.6s var(--ease-out) both;
+}
+.animate-in-delay-1 { animation-delay: 0.1s; }
+.animate-in-delay-2 { animation-delay: 0.2s; }
+.animate-in-delay-3 { animation-delay: 0.3s; }
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--cp-gray-700); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cp-gray-600); }
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 0 var(--space-md); }
+  .section { padding: var(--space-2xl) 0; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .section-header { flex-direction: column; align-items: flex-start; }
+}
+</style></head>
+  <body>
+    <div id="root"><div class="bg-mesh"></div><nav class="navbar"><div class="container navbar-inner"><a class="navbar-brand" href="/" data-discover="true"><span class="brand-icon">🥧</span><span class="brand-text"><span class="brand-name">Civic Pie</span><span class="brand-district">48th Ward · Illinois</span></span></a><div class="navbar-links "><a href="#officials">Officials</a><a href="#events">Events</a><a href="#agencies">Agencies</a><a href="#legislation">Legislation</a><a href="#benefits">Benefits</a><a href="#community">Community</a><a href="https://ova.elections.il.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Register to Vote</a></div><button class="navbar-toggle" aria-label="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div><style>
+        .navbar {
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          background: rgba(10, 22, 40, 0.85);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .navbar-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 64px;
+        }
+        .navbar-brand {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          color: inherit;
+        }
+        .brand-icon { font-size: 1.5rem; }
+        .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .brand-name {
+          font-family: var(--font-display);
+          font-weight: 800;
+          font-size: 1.125rem;
+          color: var(--cp-white);
+        }
+        .brand-district {
+          font-size: 0.6875rem;
+          color: var(--cp-gray-400);
+          font-weight: 500;
+        }
+        .navbar-links {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+        .navbar-links a {
+          padding: 0.4rem 0.75rem;
+          font-size: 0.8125rem;
+          font-weight: 500;
+          color: var(--cp-gray-400);
+          border-radius: var(--radius-full);
+          transition: all 150ms;
+          text-decoration: none;
+        }
+        .navbar-links a:hover {
+          color: var(--cp-white);
+          background: rgba(255,255,255,0.05);
+        }
+        .btn-sm { padding: 0.4rem 1rem !important; font-size: 0.8125rem !important; }
+        .navbar-toggle {
+          display: none;
+          background: none;
+          border: none;
+          color: var(--cp-gray-300);
+          cursor: pointer;
+          padding: 4px;
+        }
+        @media (max-width: 900px) {
+          .navbar-toggle { display: block; }
+          .navbar-links {
+            display: none;
+            position: absolute;
+            top: 64px;
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            background: rgba(10,22,40,0.97);
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            gap: 4px;
+          }
+          .navbar-links.open { display: flex; }
+          .navbar-links a { width: 100%; padding: 0.75rem 1rem; }
+        }
+      </style></nav><main><section class="hero-section"><div class="container"><div class="hero-content animate-in"><div class="hero-breadcrumb"><span>Civic Pie</span><span class="bc-sep">/</span><span>Illinois</span><span class="bc-sep">/</span><span>Chicago</span><span class="bc-sep">/</span><span class="bc-active">48th Ward</span></div><h1 class="hero-title">Your Civic Hub for the<br><span class="gradient-text">48th Ward</span></h1><p class="hero-desc">The 48th Ward encompasses the vibrant neighborhoods of Edgewater and Andersonville on Chicago's North Side. Known for its diversity, walkability, and active community engagement, the 48th Ward is home to over 55,000 residents and some of Chicago's most celebrated small businesses, cultural institutions, and public spaces.</p><div class="hero-meta"><span class="hero-meta-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Edgewater, Andersonville, Lakewood-Balmoral, Bryn Mawr Historic District</span><span class="hero-meta-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg> ~55,000 residents</span></div><div class="hero-actions"><a href="https://ova.elections.il.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-vote" aria-hidden="true"><path d="m9 12 2 2 4-4"></path><path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z"></path><path d="M22 19H2"></path></svg> Register to Vote</a><a href="#officials" class="btn btn-secondary">Meet Your Officials <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a href="https://the48thward.org" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ward Office <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></div></div><div class="hero-stats animate-in animate-in-delay-2"><div class="stat-card glass-card"><div class="stat-value">~55,000</div><div class="stat-label">Population</div></div><div class="stat-card glass-card"><div class="stat-value">31</div><div class="stat-label">Precincts</div></div><div class="stat-card glass-card"><div class="stat-value">474+</div><div class="stat-label">Blog Posts</div></div><div class="stat-card glass-card"><div class="stat-value">1,277</div><div class="stat-label">PB Votes (2026)</div></div><div class="stat-card glass-card"><div class="stat-value">0</div><div class="stat-label">Pedestrian Fatalities (3yr)</div></div><div class="stat-card glass-card"><div class="stat-value">12</div><div class="stat-label">APS Signals</div></div></div></div><style>
+        .hero-section { padding: 4rem 0 2rem; }
+        .hero-breadcrumb {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 0.75rem;
+          color: var(--cp-gray-500);
+          margin-bottom: 1.5rem;
+          font-weight: 500;
+        }
+        .bc-sep { color: var(--cp-gray-700); }
+        .bc-active { color: var(--cp-blue-light); }
+        .hero-title { margin-bottom: 1.25rem; }
+        .gradient-text {
+          background: linear-gradient(135deg, var(--cp-blue-light), var(--cp-teal-light));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .hero-desc {
+          max-width: 640px;
+          font-size: 1.0625rem;
+          line-height: 1.7;
+          margin-bottom: 1rem;
+        }
+        .hero-meta {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          margin-bottom: 1.5rem;
+        }
+        .hero-meta-item {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 0.8125rem;
+          color: var(--cp-gray-400);
+        }
+        .hero-actions {
+          display: flex;
+          gap: 0.75rem;
+          flex-wrap: wrap;
+          margin-bottom: 2rem;
+        }
+        .hero-stats {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 0.75rem;
+        }
+        .stat-card {
+          padding: 1.25rem;
+          text-align: center;
+        }
+        .stat-value {
+          font-family: var(--font-display);
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: var(--cp-white);
+        }
+        .stat-label {
+          font-size: 0.75rem;
+          color: var(--cp-gray-400);
+          margin-top: 2px;
+        }
+        @media (max-width: 768px) {
+          .hero-section { padding: 2rem 0 1rem; }
+          .hero-stats { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 480px) {
+          .hero-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+      </style></section><section id="officials" class="section"><div class="container"><div class="section-header"><div class="section-title"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><h2>Your Officials</h2></div><div class="tab-nav"><button class="tab-btn active">All</button><button class="tab-btn ">City</button><button class="tab-btn ">State</button><button class="tab-btn ">Federal</button></div></div><div class="grid-2"><div class="glass-card official-card"><div class="official-header" style="cursor: pointer;"><div class="official-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="official-info"><h4 style="margin: 0px; font-size: 1rem;">Leni Manaa-Hoppenworth</h4><p style="margin: 0px; font-size: 0.8125rem; color: var(--cp-gray-400);">48th Ward Alderwoman</p><div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;"><span class="badge badge-blue">City</span><span class="badge badge-blue" style="opacity: 0.7; font-size: 0.65rem;">Chicago City Council</span></div></div><button class="expand-btn" aria-label="Expand"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><style>
+        .official-card { padding: 1.25rem; }
+        .official-header { display: flex; align-items: flex-start; gap: 1rem; }
+        .official-avatar {
+          width: 48px; height: 48px; border-radius: 12px;
+          background: linear-gradient(135deg, var(--cp-blue-glow), rgba(13,148,136,0.15));
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .official-info { flex: 1; min-width: 0; }
+        .expand-btn {
+          background: none; border: none; color: var(--cp-gray-500);
+          cursor: pointer; padding: 4px; flex-shrink: 0;
+        }
+        .official-details {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-section { margin-bottom: 0.75rem; }
+        .detail-section h5 {
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--cp-gray-500);
+          margin-bottom: 0.5rem;
+        }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+        .issue-tag {
+          padding: 0.2rem 0.625rem;
+          border-radius: var(--radius-full);
+          font-size: 0.6875rem;
+          font-weight: 500;
+          background: rgba(255,255,255,0.05);
+          color: var(--cp-gray-300);
+          border: 1px solid rgba(255,255,255,0.06);
+        }
+        .achievement-list {
+          list-style: none; padding: 0;
+          display: flex; flex-direction: column; gap: 0.375rem;
+        }
+        .achievement-list li {
+          font-size: 0.8125rem; color: var(--cp-gray-300);
+          padding-left: 1rem; position: relative;
+        }
+        .achievement-list li::before {
+          content: '✓'; position: absolute; left: 0;
+          color: var(--cp-green); font-weight: 700;
+        }
+        .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .contact-link {
+          display: flex; align-items: center; gap: 5px;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+          padding: 0.3rem 0.625rem; border-radius: var(--radius-full);
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-link:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card official-card"><div class="official-header" style="cursor: pointer;"><div class="official-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="official-info"><h4 style="margin: 0px; font-size: 1rem;">Brandon Johnson</h4><p style="margin: 0px; font-size: 0.8125rem; color: var(--cp-gray-400);">Mayor of Chicago</p><div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;"><span class="badge badge-blue">City</span><span class="badge badge-blue" style="opacity: 0.7; font-size: 0.65rem;">City of Chicago</span></div></div><button class="expand-btn" aria-label="Expand"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><style>
+        .official-card { padding: 1.25rem; }
+        .official-header { display: flex; align-items: flex-start; gap: 1rem; }
+        .official-avatar {
+          width: 48px; height: 48px; border-radius: 12px;
+          background: linear-gradient(135deg, var(--cp-blue-glow), rgba(13,148,136,0.15));
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .official-info { flex: 1; min-width: 0; }
+        .expand-btn {
+          background: none; border: none; color: var(--cp-gray-500);
+          cursor: pointer; padding: 4px; flex-shrink: 0;
+        }
+        .official-details {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-section { margin-bottom: 0.75rem; }
+        .detail-section h5 {
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--cp-gray-500);
+          margin-bottom: 0.5rem;
+        }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+        .issue-tag {
+          padding: 0.2rem 0.625rem;
+          border-radius: var(--radius-full);
+          font-size: 0.6875rem;
+          font-weight: 500;
+          background: rgba(255,255,255,0.05);
+          color: var(--cp-gray-300);
+          border: 1px solid rgba(255,255,255,0.06);
+        }
+        .achievement-list {
+          list-style: none; padding: 0;
+          display: flex; flex-direction: column; gap: 0.375rem;
+        }
+        .achievement-list li {
+          font-size: 0.8125rem; color: var(--cp-gray-300);
+          padding-left: 1rem; position: relative;
+        }
+        .achievement-list li::before {
+          content: '✓'; position: absolute; left: 0;
+          color: var(--cp-green); font-weight: 700;
+        }
+        .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .contact-link {
+          display: flex; align-items: center; gap: 5px;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+          padding: 0.3rem 0.625rem; border-radius: var(--radius-full);
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-link:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card official-card"><div class="official-header" style="cursor: pointer;"><div class="official-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="official-info"><h4 style="margin: 0px; font-size: 1rem;">Kelly Cassidy</h4><p style="margin: 0px; font-size: 0.8125rem; color: var(--cp-gray-400);">State Representative — 14th District</p><div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;"><span class="badge badge-purple">State</span><span class="badge badge-blue" style="opacity: 0.7; font-size: 0.65rem;">Illinois General Assembly — House</span></div></div><button class="expand-btn" aria-label="Expand"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><style>
+        .official-card { padding: 1.25rem; }
+        .official-header { display: flex; align-items: flex-start; gap: 1rem; }
+        .official-avatar {
+          width: 48px; height: 48px; border-radius: 12px;
+          background: linear-gradient(135deg, var(--cp-blue-glow), rgba(13,148,136,0.15));
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .official-info { flex: 1; min-width: 0; }
+        .expand-btn {
+          background: none; border: none; color: var(--cp-gray-500);
+          cursor: pointer; padding: 4px; flex-shrink: 0;
+        }
+        .official-details {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-section { margin-bottom: 0.75rem; }
+        .detail-section h5 {
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--cp-gray-500);
+          margin-bottom: 0.5rem;
+        }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+        .issue-tag {
+          padding: 0.2rem 0.625rem;
+          border-radius: var(--radius-full);
+          font-size: 0.6875rem;
+          font-weight: 500;
+          background: rgba(255,255,255,0.05);
+          color: var(--cp-gray-300);
+          border: 1px solid rgba(255,255,255,0.06);
+        }
+        .achievement-list {
+          list-style: none; padding: 0;
+          display: flex; flex-direction: column; gap: 0.375rem;
+        }
+        .achievement-list li {
+          font-size: 0.8125rem; color: var(--cp-gray-300);
+          padding-left: 1rem; position: relative;
+        }
+        .achievement-list li::before {
+          content: '✓'; position: absolute; left: 0;
+          color: var(--cp-green); font-weight: 700;
+        }
+        .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .contact-link {
+          display: flex; align-items: center; gap: 5px;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+          padding: 0.3rem 0.625rem; border-radius: var(--radius-full);
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-link:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card official-card"><div class="official-header" style="cursor: pointer;"><div class="official-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="official-info"><h4 style="margin: 0px; font-size: 1rem;">Mike Simmons</h4><p style="margin: 0px; font-size: 0.8125rem; color: var(--cp-gray-400);">State Senator — 7th District</p><div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;"><span class="badge badge-purple">State</span><span class="badge badge-blue" style="opacity: 0.7; font-size: 0.65rem;">Illinois General Assembly — Senate</span></div></div><button class="expand-btn" aria-label="Expand"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><style>
+        .official-card { padding: 1.25rem; }
+        .official-header { display: flex; align-items: flex-start; gap: 1rem; }
+        .official-avatar {
+          width: 48px; height: 48px; border-radius: 12px;
+          background: linear-gradient(135deg, var(--cp-blue-glow), rgba(13,148,136,0.15));
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .official-info { flex: 1; min-width: 0; }
+        .expand-btn {
+          background: none; border: none; color: var(--cp-gray-500);
+          cursor: pointer; padding: 4px; flex-shrink: 0;
+        }
+        .official-details {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-section { margin-bottom: 0.75rem; }
+        .detail-section h5 {
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--cp-gray-500);
+          margin-bottom: 0.5rem;
+        }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+        .issue-tag {
+          padding: 0.2rem 0.625rem;
+          border-radius: var(--radius-full);
+          font-size: 0.6875rem;
+          font-weight: 500;
+          background: rgba(255,255,255,0.05);
+          color: var(--cp-gray-300);
+          border: 1px solid rgba(255,255,255,0.06);
+        }
+        .achievement-list {
+          list-style: none; padding: 0;
+          display: flex; flex-direction: column; gap: 0.375rem;
+        }
+        .achievement-list li {
+          font-size: 0.8125rem; color: var(--cp-gray-300);
+          padding-left: 1rem; position: relative;
+        }
+        .achievement-list li::before {
+          content: '✓'; position: absolute; left: 0;
+          color: var(--cp-green); font-weight: 700;
+        }
+        .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .contact-link {
+          display: flex; align-items: center; gap: 5px;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+          padding: 0.3rem 0.625rem; border-radius: var(--radius-full);
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-link:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card official-card"><div class="official-header" style="cursor: pointer;"><div class="official-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="official-info"><h4 style="margin: 0px; font-size: 1rem;">Jan Schakowsky</h4><p style="margin: 0px; font-size: 0.8125rem; color: var(--cp-gray-400);">U.S. Representative — 9th Congressional District</p><div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;"><span class="badge badge-teal">Federal</span><span class="badge badge-blue" style="opacity: 0.7; font-size: 0.65rem;">U.S. House of Representatives</span></div></div><button class="expand-btn" aria-label="Expand"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><style>
+        .official-card { padding: 1.25rem; }
+        .official-header { display: flex; align-items: flex-start; gap: 1rem; }
+        .official-avatar {
+          width: 48px; height: 48px; border-radius: 12px;
+          background: linear-gradient(135deg, var(--cp-blue-glow), rgba(13,148,136,0.15));
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .official-info { flex: 1; min-width: 0; }
+        .expand-btn {
+          background: none; border: none; color: var(--cp-gray-500);
+          cursor: pointer; padding: 4px; flex-shrink: 0;
+        }
+        .official-details {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-section { margin-bottom: 0.75rem; }
+        .detail-section h5 {
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--cp-gray-500);
+          margin-bottom: 0.5rem;
+        }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+        .issue-tag {
+          padding: 0.2rem 0.625rem;
+          border-radius: var(--radius-full);
+          font-size: 0.6875rem;
+          font-weight: 500;
+          background: rgba(255,255,255,0.05);
+          color: var(--cp-gray-300);
+          border: 1px solid rgba(255,255,255,0.06);
+        }
+        .achievement-list {
+          list-style: none; padding: 0;
+          display: flex; flex-direction: column; gap: 0.375rem;
+        }
+        .achievement-list li {
+          font-size: 0.8125rem; color: var(--cp-gray-300);
+          padding-left: 1rem; position: relative;
+        }
+        .achievement-list li::before {
+          content: '✓'; position: absolute; left: 0;
+          color: var(--cp-green); font-weight: 700;
+        }
+        .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .contact-link {
+          display: flex; align-items: center; gap: 5px;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+          padding: 0.3rem 0.625rem; border-radius: var(--radius-full);
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-link:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card official-card"><div class="official-header" style="cursor: pointer;"><div class="official-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="official-info"><h4 style="margin: 0px; font-size: 1rem;">Dick Durbin</h4><p style="margin: 0px; font-size: 0.8125rem; color: var(--cp-gray-400);">U.S. Senator</p><div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;"><span class="badge badge-teal">Federal</span><span class="badge badge-blue" style="opacity: 0.7; font-size: 0.65rem;">U.S. Senate</span></div></div><button class="expand-btn" aria-label="Expand"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><style>
+        .official-card { padding: 1.25rem; }
+        .official-header { display: flex; align-items: flex-start; gap: 1rem; }
+        .official-avatar {
+          width: 48px; height: 48px; border-radius: 12px;
+          background: linear-gradient(135deg, var(--cp-blue-glow), rgba(13,148,136,0.15));
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .official-info { flex: 1; min-width: 0; }
+        .expand-btn {
+          background: none; border: none; color: var(--cp-gray-500);
+          cursor: pointer; padding: 4px; flex-shrink: 0;
+        }
+        .official-details {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-section { margin-bottom: 0.75rem; }
+        .detail-section h5 {
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--cp-gray-500);
+          margin-bottom: 0.5rem;
+        }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+        .issue-tag {
+          padding: 0.2rem 0.625rem;
+          border-radius: var(--radius-full);
+          font-size: 0.6875rem;
+          font-weight: 500;
+          background: rgba(255,255,255,0.05);
+          color: var(--cp-gray-300);
+          border: 1px solid rgba(255,255,255,0.06);
+        }
+        .achievement-list {
+          list-style: none; padding: 0;
+          display: flex; flex-direction: column; gap: 0.375rem;
+        }
+        .achievement-list li {
+          font-size: 0.8125rem; color: var(--cp-gray-300);
+          padding-left: 1rem; position: relative;
+        }
+        .achievement-list li::before {
+          content: '✓'; position: absolute; left: 0;
+          color: var(--cp-green); font-weight: 700;
+        }
+        .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .contact-link {
+          display: flex; align-items: center; gap: 5px;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+          padding: 0.3rem 0.625rem; border-radius: var(--radius-full);
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-link:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card official-card"><div class="official-header" style="cursor: pointer;"><div class="official-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="official-info"><h4 style="margin: 0px; font-size: 1rem;">Tammy Duckworth</h4><p style="margin: 0px; font-size: 0.8125rem; color: var(--cp-gray-400);">U.S. Senator</p><div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;"><span class="badge badge-teal">Federal</span><span class="badge badge-blue" style="opacity: 0.7; font-size: 0.65rem;">U.S. Senate</span></div></div><button class="expand-btn" aria-label="Expand"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><style>
+        .official-card { padding: 1.25rem; }
+        .official-header { display: flex; align-items: flex-start; gap: 1rem; }
+        .official-avatar {
+          width: 48px; height: 48px; border-radius: 12px;
+          background: linear-gradient(135deg, var(--cp-blue-glow), rgba(13,148,136,0.15));
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .official-info { flex: 1; min-width: 0; }
+        .expand-btn {
+          background: none; border: none; color: var(--cp-gray-500);
+          cursor: pointer; padding: 4px; flex-shrink: 0;
+        }
+        .official-details {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-section { margin-bottom: 0.75rem; }
+        .detail-section h5 {
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--cp-gray-500);
+          margin-bottom: 0.5rem;
+        }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+        .issue-tag {
+          padding: 0.2rem 0.625rem;
+          border-radius: var(--radius-full);
+          font-size: 0.6875rem;
+          font-weight: 500;
+          background: rgba(255,255,255,0.05);
+          color: var(--cp-gray-300);
+          border: 1px solid rgba(255,255,255,0.06);
+        }
+        .achievement-list {
+          list-style: none; padding: 0;
+          display: flex; flex-direction: column; gap: 0.375rem;
+        }
+        .achievement-list li {
+          font-size: 0.8125rem; color: var(--cp-gray-300);
+          padding-left: 1rem; position: relative;
+        }
+        .achievement-list li::before {
+          content: '✓'; position: absolute; left: 0;
+          color: var(--cp-green); font-weight: 700;
+        }
+        .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .contact-link {
+          display: flex; align-items: center; gap: 5px;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+          padding: 0.3rem 0.625rem; border-radius: var(--radius-full);
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-link:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div></div></div></section><section id="events" class="section"><div class="container"><div class="section-header"><div class="section-title"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></div><h2>Events &amp; Deadlines</h2></div><a href="https://www.the48thward.org/calendar" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Full Calendar <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></div><div class="grid-3"><div class="glass-card event-card"><div class="event-top"><span class="badge badge-blue">Community Meeting</span><span class="badge badge-teal" style="font-size: 0.625rem;">Recurring</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 1rem;">Ward Night</h4><p style="font-size: 0.8125rem; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Join your neighbors and Alderwoman Manaa-Hoppenworth to discuss zoning, development, housing, infrastructure, and any community concerns. Ward Nights occur on the 1st and 3rd Monday of each month.</p><div class="event-meta"><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> May 5, 2026</span><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> 6:00 PM — 8:00 PM</span><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> 48th Ward Office, 6012 N Broadway</span></div><a href="https://the48thward.org/ward-nights" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="margin-top: 0.75rem; font-size: 0.75rem;">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .event-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .event-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .event-meta {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+        }
+        .event-meta span { display: flex; align-items: center; gap: 6px; }
+      </style></div><div class="glass-card event-card"><div class="event-top"><span class="badge badge-amber">Infrastructure</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 1rem;">Street Sweeping Season Begins</h4><p style="font-size: 0.8125rem; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Chicago's street sweeping season is active. Check your section schedule to avoid the $60 parking fine. Search your address at wethesweeple.com.</p><div class="event-meta"><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> Apr 1, 2026 — Nov 30, 2026</span><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> 48th Ward streets</span></div><a href="https://the48thward.org/blog/street-sweeping" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="margin-top: 0.75rem; font-size: 0.75rem;">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .event-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .event-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .event-meta {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+        }
+        .event-meta span { display: flex; align-items: center; gap: 6px; }
+      </style></div><div class="glass-card event-card"><div class="event-top"><span class="badge badge-green">Civic Participation</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 1rem;">Participatory Budgeting 2027 — Propose Your Project</h4><p style="font-size: 0.8125rem; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Submit your infrastructure project ideas for the 2027 Participatory Budgeting cycle. $1M of ward infrastructure funds are directed by your vote. Contact development@the48thward.org to host your own community engagement meeting.</p><div class="event-meta"><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> Sep 1, 2026 — Dec 15, 2026</span><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Online &amp; Community Events</span></div><a href="https://the48thward.org/participatory-budgeting" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="margin-top: 0.75rem; font-size: 0.75rem;">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .event-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .event-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .event-meta {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+        }
+        .event-meta span { display: flex; align-items: center; gap: 6px; }
+      </style></div><div class="glass-card event-card"><div class="event-top"><span class="badge badge-amber">Infrastructure</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 1rem;">2026 Construction Season</h4><p style="font-size: 0.8125rem; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Major construction projects across the ward including street resurfacing, alley resurfacing, accessible pedestrian signals, raised intersections near Senn, Under-L Activation, green alleys, and the DWM Water Main Project on Sheridan/Bryn Mawr.</p><div class="event-meta"><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> Apr 1, 2026 — Dec 31, 2026</span><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Various locations across the 48th Ward</span></div><a href="https://the48thward.org/blog/2026-construction" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="margin-top: 0.75rem; font-size: 0.75rem;">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .event-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .event-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .event-meta {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+        }
+        .event-meta span { display: flex; align-items: center; gap: 6px; }
+      </style></div><div class="glass-card event-card"><div class="event-top"><span class="badge badge-purple">Volunteer</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 1rem;">Front Desk Volunteer Opportunity</h4><p style="font-size: 0.8125rem; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Help your neighbors by volunteering at the ward office front desk. Great opportunity to learn about local government operations and assist with constituent services.</p><div class="event-meta"><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> May 1, 2026</span><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> 48th Ward Office</span></div><a href="https://the48thward.org/blog/front-desk-volunteer" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="margin-top: 0.75rem; font-size: 0.75rem;">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .event-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .event-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .event-meta {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+        }
+        .event-meta span { display: flex; align-items: center; gap: 6px; }
+      </style></div><div class="glass-card event-card"><div class="event-top"><span class="badge badge-teal">Voting</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 1rem;">Voter Registration — Register or Update</h4><p style="font-size: 0.8125rem; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Register to vote or update your voter registration in Illinois. Same-day voter registration is available. Check your registration status and polling location.</p><div class="event-meta"><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> Jan 1, 2026 — Dec 31, 2026</span><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Online or In-Person</span></div><a href="https://ova.elections.il.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="margin-top: 0.75rem; font-size: 0.75rem;">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .event-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .event-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .event-meta {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          font-size: 0.75rem; color: var(--cp-gray-400);
+        }
+        .event-meta span { display: flex; align-items: center; gap: 6px; }
+      </style></div></div></div></section><section id="agencies" class="section"><div class="container"><div class="section-header"><div class="section-title"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><h2>Agencies &amp; Organizations</h2></div></div><div class="grid-2"><div class="glass-card agency-card"><div class="agency-header" style="cursor: pointer;"><div class="agency-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><h4 style="margin: 0px; font-size: 0.9375rem;">48th Ward Office</h4><div style="display: flex; gap: 0.375rem; margin-top: 0.375rem; flex-wrap: wrap;"><span class="badge badge-blue">Ward Office</span><span class="badge badge-blue" style="opacity: 0.6;">Local</span></div></div><button style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--cp-gray-500); cursor: pointer; padding: 4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><p style="font-size: 0.8125rem; margin: 0.75rem 0px; color: var(--cp-gray-400);">The office of Alderwoman Leni Manaa-Hoppenworth. Handles constituent services, neighborhood issues, development review, zoning, and community events.</p><style>
+        .agency-card { padding: 1.25rem; }
+        .agency-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .agency-icon-wrap {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: rgba(37,99,235,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .agency-details {
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-label {
+          font-size: 0.6875rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--cp-gray-500);
+          margin-bottom: 0.375rem;
+        }
+        .service-chip {
+          padding: 0.2rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; background: rgba(255,255,255,0.04);
+          color: var(--cp-gray-300); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .agency-contact-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .contact-chip {
+          display: flex; align-items: center; gap: 4px;
+          padding: 0.25rem 0.625rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; color: var(--cp-gray-400);
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-chip:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card agency-card"><div class="agency-header" style="cursor: pointer;"><div class="agency-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><h4 style="margin: 0px; font-size: 0.9375rem;">Chicago 311</h4><div style="display: flex; gap: 0.375rem; margin-top: 0.375rem; flex-wrap: wrap;"><span class="badge badge-amber">City Service</span><span class="badge badge-blue" style="opacity: 0.6;">City</span></div></div><button style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--cp-gray-500); cursor: pointer; padding: 4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><p style="font-size: 0.8125rem; margin: 0.75rem 0px; color: var(--cp-gray-400);">Non-emergency city services including potholes, street lights, graffiti removal, tree trimming, abandoned vehicles, and more. Available 24/7.</p><style>
+        .agency-card { padding: 1.25rem; }
+        .agency-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .agency-icon-wrap {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: rgba(37,99,235,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .agency-details {
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-label {
+          font-size: 0.6875rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--cp-gray-500);
+          margin-bottom: 0.375rem;
+        }
+        .service-chip {
+          padding: 0.2rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; background: rgba(255,255,255,0.04);
+          color: var(--cp-gray-300); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .agency-contact-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .contact-chip {
+          display: flex; align-items: center; gap: 4px;
+          padding: 0.25rem 0.625rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; color: var(--cp-gray-400);
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-chip:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card agency-card"><div class="agency-header" style="cursor: pointer;"><div class="agency-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><h4 style="margin: 0px; font-size: 0.9375rem;">Chicago 211</h4><div style="display: flex; gap: 0.375rem; margin-top: 0.375rem; flex-wrap: wrap;"><span class="badge badge-green">Social Services</span><span class="badge badge-blue" style="opacity: 0.6;">City</span></div></div><button style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--cp-gray-500); cursor: pointer; padding: 4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><p style="font-size: 0.8125rem; margin: 0.75rem 0px; color: var(--cp-gray-400);">Health and social services support. Connects residents to community-based organizations and government agencies for help with housing, food, mental health, substance use, and more.</p><style>
+        .agency-card { padding: 1.25rem; }
+        .agency-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .agency-icon-wrap {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: rgba(37,99,235,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .agency-details {
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-label {
+          font-size: 0.6875rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--cp-gray-500);
+          margin-bottom: 0.375rem;
+        }
+        .service-chip {
+          padding: 0.2rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; background: rgba(255,255,255,0.04);
+          color: var(--cp-gray-300); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .agency-contact-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .contact-chip {
+          display: flex; align-items: center; gap: 4px;
+          padding: 0.25rem 0.625rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; color: var(--cp-gray-400);
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-chip:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card agency-card"><div class="agency-header" style="cursor: pointer;"><div class="agency-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><h4 style="margin: 0px; font-size: 0.9375rem;">Chicago Department of Public Health (CDPH)</h4><div style="display: flex; gap: 0.375rem; margin-top: 0.375rem; flex-wrap: wrap;"><span class="badge badge-red">Health</span><span class="badge badge-blue" style="opacity: 0.6;">City</span></div></div><button style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--cp-gray-500); cursor: pointer; padding: 4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><p style="font-size: 0.8125rem; margin: 0.75rem 0px; color: var(--cp-gray-400);">Provides public health services, immunizations, health inspections, environmental health, and emergency preparedness for all Chicago residents.</p><style>
+        .agency-card { padding: 1.25rem; }
+        .agency-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .agency-icon-wrap {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: rgba(37,99,235,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .agency-details {
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-label {
+          font-size: 0.6875rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--cp-gray-500);
+          margin-bottom: 0.375rem;
+        }
+        .service-chip {
+          padding: 0.2rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; background: rgba(255,255,255,0.04);
+          color: var(--cp-gray-300); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .agency-contact-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .contact-chip {
+          display: flex; align-items: center; gap: 4px;
+          padding: 0.25rem 0.625rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; color: var(--cp-gray-400);
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-chip:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card agency-card"><div class="agency-header" style="cursor: pointer;"><div class="agency-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><h4 style="margin: 0px; font-size: 0.9375rem;">Chicago Department of Transportation (CDOT)</h4><div style="display: flex; gap: 0.375rem; margin-top: 0.375rem; flex-wrap: wrap;"><span class="badge badge-amber">Infrastructure</span><span class="badge badge-blue" style="opacity: 0.6;">City</span></div></div><button style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--cp-gray-500); cursor: pointer; padding: 4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><p style="font-size: 0.8125rem; margin: 0.75rem 0px; color: var(--cp-gray-400);">Manages the city's transportation infrastructure including streets, sidewalks, bridges, traffic signals, and bicycle facilities.</p><style>
+        .agency-card { padding: 1.25rem; }
+        .agency-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .agency-icon-wrap {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: rgba(37,99,235,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .agency-details {
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-label {
+          font-size: 0.6875rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--cp-gray-500);
+          margin-bottom: 0.375rem;
+        }
+        .service-chip {
+          padding: 0.2rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; background: rgba(255,255,255,0.04);
+          color: var(--cp-gray-300); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .agency-contact-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .contact-chip {
+          display: flex; align-items: center; gap: 4px;
+          padding: 0.25rem 0.625rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; color: var(--cp-gray-400);
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-chip:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card agency-card"><div class="agency-header" style="cursor: pointer;"><div class="agency-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><h4 style="margin: 0px; font-size: 0.9375rem;">Edgewater Chamber of Commerce</h4><div style="display: flex; gap: 0.375rem; margin-top: 0.375rem; flex-wrap: wrap;"><span class="badge badge-purple">Business</span><span class="badge badge-blue" style="opacity: 0.6;">Local</span></div></div><button style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--cp-gray-500); cursor: pointer; padding: 4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><p style="font-size: 0.8125rem; margin: 0.75rem 0px; color: var(--cp-gray-400);">Promotes and supports local businesses in the Edgewater neighborhood. Organizes events, networking, and advocacy for the business community.</p><style>
+        .agency-card { padding: 1.25rem; }
+        .agency-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .agency-icon-wrap {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: rgba(37,99,235,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .agency-details {
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-label {
+          font-size: 0.6875rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--cp-gray-500);
+          margin-bottom: 0.375rem;
+        }
+        .service-chip {
+          padding: 0.2rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; background: rgba(255,255,255,0.04);
+          color: var(--cp-gray-300); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .agency-contact-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .contact-chip {
+          display: flex; align-items: center; gap: 4px;
+          padding: 0.25rem 0.625rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; color: var(--cp-gray-400);
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-chip:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card agency-card"><div class="agency-header" style="cursor: pointer;"><div class="agency-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><h4 style="margin: 0px; font-size: 0.9375rem;">Chicago Board of Elections</h4><div style="display: flex; gap: 0.375rem; margin-top: 0.375rem; flex-wrap: wrap;"><span class="badge badge-teal">Elections</span><span class="badge badge-blue" style="opacity: 0.6;">City</span></div></div><button style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--cp-gray-500); cursor: pointer; padding: 4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><p style="font-size: 0.8125rem; margin: 0.75rem 0px; color: var(--cp-gray-400);">Administers elections in Chicago. Handles voter registration, polling places, early voting, and election results.</p><style>
+        .agency-card { padding: 1.25rem; }
+        .agency-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .agency-icon-wrap {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: rgba(37,99,235,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .agency-details {
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-label {
+          font-size: 0.6875rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--cp-gray-500);
+          margin-bottom: 0.375rem;
+        }
+        .service-chip {
+          padding: 0.2rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; background: rgba(255,255,255,0.04);
+          color: var(--cp-gray-300); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .agency-contact-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .contact-chip {
+          display: flex; align-items: center; gap: 4px;
+          padding: 0.25rem 0.625rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; color: var(--cp-gray-400);
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-chip:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div><div class="glass-card agency-card"><div class="agency-header" style="cursor: pointer;"><div class="agency-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><h4 style="margin: 0px; font-size: 0.9375rem;">Illinois Secretary of State</h4><div style="display: flex; gap: 0.375rem; margin-top: 0.375rem; flex-wrap: wrap;"><span class="badge badge-purple">State Agency</span><span class="badge badge-blue" style="opacity: 0.6;">State</span></div></div><button style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--cp-gray-500); cursor: pointer; padding: 4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><p style="font-size: 0.8125rem; margin: 0.75rem 0px; color: var(--cp-gray-400);">Handles driver's licenses, vehicle registration, organ donation, and the Illinois State Library. Key resource for voter ID.</p><style>
+        .agency-card { padding: 1.25rem; }
+        .agency-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .agency-icon-wrap {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: rgba(37,99,235,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--cp-blue-light); flex-shrink: 0;
+        }
+        .agency-details {
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          animation: fadeIn 0.3s ease;
+        }
+        .detail-label {
+          font-size: 0.6875rem; text-transform: uppercase;
+          letter-spacing: 0.08em; color: var(--cp-gray-500);
+          margin-bottom: 0.375rem;
+        }
+        .service-chip {
+          padding: 0.2rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; background: rgba(255,255,255,0.04);
+          color: var(--cp-gray-300); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .agency-contact-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .contact-chip {
+          display: flex; align-items: center; gap: 4px;
+          padding: 0.25rem 0.625rem; border-radius: var(--radius-full);
+          font-size: 0.6875rem; color: var(--cp-gray-400);
+          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+          transition: all 150ms;
+        }
+        .contact-chip:hover { color: var(--cp-white); border-color: rgba(255,255,255,0.12); }
+      </style></div></div></div></section><section id="legislation" class="section"><div class="container"><div class="section-header"><div class="section-title"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll-text" aria-hidden="true"><path d="M15 12h-5"></path><path d="M15 8h-5"></path><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path></svg></div><h2>Legislation &amp; Projects</h2></div></div><div class="grid-2"><div class="glass-card leg-card"><div class="leg-top"><span class="badge badge-green"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big" aria-hidden="true" style="margin-right: 4px;"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg> Approved</span><span class="badge badge-blue" style="opacity: 0.6;">Ward</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Participatory Budgeting 2026 — Winning Projects</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem;">Community-voted allocation of $1M in infrastructure funds. Winners: School Pedestrian Safety, Project Sidewalk, Swift Nature Play Area, Lakefront Trail Placemaking, Residential Pedestrian Safety, Public Art.</p><p style="font-size: 0.75rem; color: var(--cp-teal-light); margin-bottom: 0.75rem;">Impact: Direct infrastructure improvements across the 48th Ward</p><div class="leg-bottom"><span style="font-size: 0.6875rem; color: var(--cp-gray-500);">Mar 12, 2026</span><a href="https://the48thward.org/blog/pb-2026-winners" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size: 0.6875rem; padding: 0.25rem 0.5rem;">Details <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></div><div class="leg-tags"><span class="leg-tag">budget</span><span class="leg-tag">infrastructure</span><span class="leg-tag">community-driven</span></div><style>
+        .leg-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .leg-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .leg-bottom { display: flex; align-items: center; justify-content: space-between; }
+        .leg-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.75rem; }
+        .leg-tag {
+          padding: 0.125rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.625rem; color: var(--cp-gray-500);
+          background: rgba(255,255,255,0.03);
+        }
+      </style></div><div class="glass-card leg-card"><div class="leg-top"><span class="badge badge-amber"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true" style="margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> In Progress</span><span class="badge badge-blue" style="opacity: 0.6;">Ward</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Accessible Pedestrian Signals Expansion</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem;">Installation of 6 new accessible pedestrian signals (APS) at key intersections — $1.08M investment. Locations include Sheridan &amp; Balmoral, Sheridan &amp; Glenlake, Sheridan &amp; Argyle, Broadway &amp; Balmoral, Broadway &amp; Argyle, Broadway &amp; Ainslie.</p><p style="font-size: 0.75rem; color: var(--cp-teal-light); margin-bottom: 0.75rem;">Impact: Improved accessibility for blind, low-vision, and deafblind pedestrians</p><div class="leg-bottom"><span style="font-size: 0.6875rem; color: var(--cp-gray-500);">Apr 16, 2026</span><a href="https://the48thward.org/blog/aps" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size: 0.6875rem; padding: 0.25rem 0.5rem;">Details <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></div><div class="leg-tags"><span class="leg-tag">accessibility</span><span class="leg-tag">safety</span><span class="leg-tag">infrastructure</span></div><style>
+        .leg-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .leg-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .leg-bottom { display: flex; align-items: center; justify-content: space-between; }
+        .leg-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.75rem; }
+        .leg-tag {
+          padding: 0.125rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.625rem; color: var(--cp-gray-500);
+          background: rgba(255,255,255,0.03);
+        }
+      </style></div><div class="glass-card leg-card"><div class="leg-top"><span class="badge badge-amber"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true" style="margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> In Progress</span><span class="badge badge-blue" style="opacity: 0.6;">City</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Bryn Mawr Historic District Landmarking</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem;">Historic preservation effort to landmark the Bryn Mawr Historic District, protecting the architectural character of this important neighborhood corridor.</p><p style="font-size: 0.75rem; color: var(--cp-teal-light); margin-bottom: 0.75rem;">Impact: Preserves historic character and property values</p><div class="leg-bottom"><span style="font-size: 0.6875rem; color: var(--cp-gray-500);">Mar 5, 2026</span><a href="https://the48thward.org/blog/bryn-mawr-landmarking" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size: 0.6875rem; padding: 0.25rem 0.5rem;">Details <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></div><div class="leg-tags"><span class="leg-tag">preservation</span><span class="leg-tag">zoning</span><span class="leg-tag">development</span></div><style>
+        .leg-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .leg-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .leg-bottom { display: flex; align-items: center; justify-content: space-between; }
+        .leg-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.75rem; }
+        .leg-tag {
+          padding: 0.125rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.625rem; color: var(--cp-gray-500);
+          background: rgba(255,255,255,0.03);
+        }
+      </style></div><div class="glass-card leg-card"><div class="leg-top"><span class="badge badge-green"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big" aria-hidden="true" style="margin-right: 4px;"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg> Approved</span><span class="badge badge-blue" style="opacity: 0.6;">Ward</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">1527 W Edgewater: Zoning Change RS-3 to RM-4.5</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem;">Alderwoman Manaa-Hoppenworth approved the request for a zoning change from RS-3 (Residential Single-Family) to RM-4.5 (Residential Multi-Unit) at 1527 W Edgewater.</p><p style="font-size: 0.75rem; color: var(--cp-teal-light); margin-bottom: 0.75rem;">Impact: Enables multi-unit residential development</p><div class="leg-bottom"><span style="font-size: 0.6875rem; color: var(--cp-gray-500);">Feb 25, 2026</span><a href="https://the48thward.org/blog/zoning-decision-1527-edgewater" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size: 0.6875rem; padding: 0.25rem 0.5rem;">Details <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></div><div class="leg-tags"><span class="leg-tag">zoning</span><span class="leg-tag">housing</span><span class="leg-tag">development</span></div><style>
+        .leg-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .leg-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .leg-bottom { display: flex; align-items: center; justify-content: space-between; }
+        .leg-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.75rem; }
+        .leg-tag {
+          padding: 0.125rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.625rem; color: var(--cp-gray-500);
+          background: rgba(255,255,255,0.03);
+        }
+      </style></div><div class="glass-card leg-card"><div class="leg-top"><span class="badge badge-amber"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true" style="margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> In Progress</span><span class="badge badge-blue" style="opacity: 0.6;">Ward</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Thorndale Commercial Corridor Revitalization</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem;">Ongoing work to revitalize the Thorndale commercial corridor, supporting local businesses and improving the streetscape.</p><p style="font-size: 0.75rem; color: var(--cp-teal-light); margin-bottom: 0.75rem;">Impact: Economic development and neighborhood improvement</p><div class="leg-bottom"><span style="font-size: 0.6875rem; color: var(--cp-gray-500);">Feb 10, 2026</span><a href="https://the48thward.org/blog/thorndale-corridor" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size: 0.6875rem; padding: 0.25rem 0.5rem;">Details <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></div><div class="leg-tags"><span class="leg-tag">development</span><span class="leg-tag">business</span><span class="leg-tag">infrastructure</span></div><style>
+        .leg-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .leg-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .leg-bottom { display: flex; align-items: center; justify-content: space-between; }
+        .leg-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.75rem; }
+        .leg-tag {
+          padding: 0.125rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.625rem; color: var(--cp-gray-500);
+          background: rgba(255,255,255,0.03);
+        }
+      </style></div><div class="glass-card leg-card"><div class="leg-top"><span class="badge badge-blue"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert" aria-hidden="true" style="margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg> Active</span><span class="badge badge-blue" style="opacity: 0.6;">City</span></div><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Vision Zero — Zero Pedestrian Fatalities</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem;">The 48th Ward has achieved zero pedestrian fatalities for three consecutive years (2024, 2025, 2026) through safer street design, APS signals, raised intersections, and bump-outs.</p><p style="font-size: 0.75rem; color: var(--cp-teal-light); margin-bottom: 0.75rem;">Impact: No traffic fatalities in the ward for 3 years</p><div class="leg-bottom"><span style="font-size: 0.6875rem; color: var(--cp-gray-500);">Jan 1, 2024</span><a href="https://the48thward.org" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size: 0.6875rem; padding: 0.25rem 0.5rem;">Details <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></div><div class="leg-tags"><span class="leg-tag">safety</span><span class="leg-tag">infrastructure</span><span class="leg-tag">health</span></div><style>
+        .leg-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .leg-top { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+        .leg-bottom { display: flex; align-items: center; justify-content: space-between; }
+        .leg-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.75rem; }
+        .leg-tag {
+          padding: 0.125rem 0.5rem; border-radius: var(--radius-full);
+          font-size: 0.625rem; color: var(--cp-gray-500);
+          background: rgba(255,255,255,0.03);
+        }
+      </style></div></div></div></section><section id="benefits" class="section"><div class="container"><div class="section-header"><div class="section-title"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg></div><h2>Benefits &amp; Resources</h2></div></div><div class="grid-3"><div class="glass-card benefit-card"><span class="badge badge-teal" style="align-self: flex-start;">City Services</span><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">City of Chicago 311 Services</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem; flex: 1 1 0%;">Report potholes, broken street lights, graffiti, missed garbage pickup, and other non-emergency city issues. Available 24/7 via phone, web, or app.</p><div class="benefit-info"><div class="benefit-row"><span class="benefit-label">Eligibility</span><span class="benefit-value">All Chicago residents</span></div><div class="benefit-row"><span class="benefit-label">How to Apply</span><span class="benefit-value">Dial 311, visit 311.chicago.gov, or download the CHI 311 app</span></div></div><a href="https://311.chicago.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 0.75rem; font-size: 0.75rem; align-self: flex-start;">Apply / Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .benefit-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .benefit-info {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          padding: 0.75rem; border-radius: var(--radius-sm);
+          background: rgba(255,255,255,0.02);
+        }
+        .benefit-row { display: flex; flex-direction: column; gap: 2px; }
+        .benefit-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cp-gray-500); }
+        .benefit-value { font-size: 0.75rem; color: var(--cp-gray-300); }
+      </style></div><div class="glass-card benefit-card"><span class="badge badge-teal" style="align-self: flex-start;">Health &amp; Social Services</span><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Health &amp; Social Services (211)</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem; flex: 1 1 0%;">Free, confidential connection to housing, food, mental health, substance use, utility assistance, and legal aid resources.</p><div class="benefit-info"><div class="benefit-row"><span class="benefit-label">Eligibility</span><span class="benefit-value">All residents</span></div><div class="benefit-row"><span class="benefit-label">How to Apply</span><span class="benefit-value">Dial 211 or visit 211metrochicago.org</span></div></div><a href="https://211metrochicago.org/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 0.75rem; font-size: 0.75rem; align-self: flex-start;">Apply / Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .benefit-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .benefit-info {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          padding: 0.75rem; border-radius: var(--radius-sm);
+          background: rgba(255,255,255,0.02);
+        }
+        .benefit-row { display: flex; flex-direction: column; gap: 2px; }
+        .benefit-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cp-gray-500); }
+        .benefit-value { font-size: 0.75rem; color: var(--cp-gray-300); }
+      </style></div><div class="glass-card benefit-card"><span class="badge badge-teal" style="align-self: flex-start;">Civic Participation</span><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Participatory Budgeting</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem; flex: 1 1 0%;">The 48th Ward allocates $1M annually for infrastructure improvements decided by community vote. Propose projects for 2027 starting in September.</p><div class="benefit-info"><div class="benefit-row"><span class="benefit-label">Eligibility</span><span class="benefit-value">48th Ward residents age 14+</span></div><div class="benefit-row"><span class="benefit-label">How to Apply</span><span class="benefit-value">Submit ideas via the48thward.org or attend a community engagement meeting</span></div></div><a href="https://the48thward.org/participatory-budgeting" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 0.75rem; font-size: 0.75rem; align-self: flex-start;">Apply / Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .benefit-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .benefit-info {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          padding: 0.75rem; border-radius: var(--radius-sm);
+          background: rgba(255,255,255,0.02);
+        }
+        .benefit-row { display: flex; flex-direction: column; gap: 2px; }
+        .benefit-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cp-gray-500); }
+        .benefit-value { font-size: 0.75rem; color: var(--cp-gray-300); }
+      </style></div><div class="glass-card benefit-card"><span class="badge badge-teal" style="align-self: flex-start;">Constituent Services</span><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Ward Neighborhood Services</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem; flex: 1 1 0%;">Submit requests for ward-level issues including moving signs, block party permits, tree concerns, and neighborhood safety.</p><div class="benefit-info"><div class="benefit-row"><span class="benefit-label">Eligibility</span><span class="benefit-value">48th Ward residents</span></div><div class="benefit-row"><span class="benefit-label">How to Apply</span><span class="benefit-value">Complete the online form or visit the ward office</span></div></div><a href="https://www.the48thward.org/service-request" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 0.75rem; font-size: 0.75rem; align-self: flex-start;">Apply / Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .benefit-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .benefit-info {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          padding: 0.75rem; border-radius: var(--radius-sm);
+          background: rgba(255,255,255,0.02);
+        }
+        .benefit-row { display: flex; flex-direction: column; gap: 2px; }
+        .benefit-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cp-gray-500); }
+        .benefit-value { font-size: 0.75rem; color: var(--cp-gray-300); }
+      </style></div><div class="glass-card benefit-card"><span class="badge badge-teal" style="align-self: flex-start;">Voting</span><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Illinois Voter Registration</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem; flex: 1 1 0%;">Register to vote online, by mail, or in-person. Same-day registration is available at early voting sites and on Election Day. You can also update your address or name.</p><div class="benefit-info"><div class="benefit-row"><span class="benefit-label">Eligibility</span><span class="benefit-value">U.S. citizen, 18+ by Election Day, Illinois resident for 30+ days</span></div><div class="benefit-row"><span class="benefit-label">How to Apply</span><span class="benefit-value">Visit ova.elections.il.gov or register at the Chicago Board of Elections</span></div></div><a href="https://ova.elections.il.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 0.75rem; font-size: 0.75rem; align-self: flex-start;">Apply / Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .benefit-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .benefit-info {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          padding: 0.75rem; border-radius: var(--radius-sm);
+          background: rgba(255,255,255,0.02);
+        }
+        .benefit-row { display: flex; flex-direction: column; gap: 2px; }
+        .benefit-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cp-gray-500); }
+        .benefit-value { font-size: 0.75rem; color: var(--cp-gray-300); }
+      </style></div><div class="glass-card benefit-card"><span class="badge badge-teal" style="align-self: flex-start;">Utility Assistance</span><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Low Income Home Energy Assistance Program (LIHEAP)</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem; flex: 1 1 0%;">Helps eligible low-income households pay energy bills. Available through CEDA (Community and Economic Development Association).</p><div class="benefit-info"><div class="benefit-row"><span class="benefit-label">Eligibility</span><span class="benefit-value">Income-based (varies by household size)</span></div><div class="benefit-row"><span class="benefit-label">How to Apply</span><span class="benefit-value">Apply through CEDA at cedaorg.net or call (866) 571-1999</span></div></div><a href="https://www.cedaorg.net/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 0.75rem; font-size: 0.75rem; align-self: flex-start;">Apply / Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .benefit-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .benefit-info {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          padding: 0.75rem; border-radius: var(--radius-sm);
+          background: rgba(255,255,255,0.02);
+        }
+        .benefit-row { display: flex; flex-direction: column; gap: 2px; }
+        .benefit-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cp-gray-500); }
+        .benefit-value { font-size: 0.75rem; color: var(--cp-gray-300); }
+      </style></div><div class="glass-card benefit-card"><span class="badge badge-teal" style="align-self: flex-start;">Food Assistance</span><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">SNAP (Food Assistance)</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem; flex: 1 1 0%;">Supplemental Nutrition Assistance Program provides monthly benefits for food purchases. Apply through Illinois DHS.</p><div class="benefit-info"><div class="benefit-row"><span class="benefit-label">Eligibility</span><span class="benefit-value">Income-based</span></div><div class="benefit-row"><span class="benefit-label">How to Apply</span><span class="benefit-value">Apply online at abe.illinois.gov or visit a DHS office</span></div></div><a href="https://abe.illinois.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 0.75rem; font-size: 0.75rem; align-self: flex-start;">Apply / Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .benefit-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .benefit-info {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          padding: 0.75rem; border-radius: var(--radius-sm);
+          background: rgba(255,255,255,0.02);
+        }
+        .benefit-row { display: flex; flex-direction: column; gap: 2px; }
+        .benefit-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cp-gray-500); }
+        .benefit-value { font-size: 0.75rem; color: var(--cp-gray-300); }
+      </style></div><div class="glass-card benefit-card"><span class="badge badge-teal" style="align-self: flex-start;">Economic Development</span><h4 style="margin: 0.75rem 0px 0.5rem; font-size: 0.9375rem;">Small Business Support &amp; Grants</h4><p style="font-size: 0.8125rem; margin-bottom: 0.5rem; flex: 1 1 0%;">Chicago and Cook County offer various grants, loans, and technical assistance for small businesses. Check with the Edgewater Chamber of Commerce for local opportunities.</p><div class="benefit-info"><div class="benefit-row"><span class="benefit-label">Eligibility</span><span class="benefit-value">Small business owners in Chicago</span></div><div class="benefit-row"><span class="benefit-label">How to Apply</span><span class="benefit-value">Visit the Chicago BACP website or contact the Edgewater Chamber</span></div></div><a href="https://www.chicago.gov/city/en/depts/bacp.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 0.75rem; font-size: 0.75rem; align-self: flex-start;">Apply / Learn More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a><style>
+        .benefit-card { padding: 1.25rem; display: flex; flex-direction: column; }
+        .benefit-info {
+          display: flex; flex-direction: column; gap: 0.375rem;
+          padding: 0.75rem; border-radius: var(--radius-sm);
+          background: rgba(255,255,255,0.02);
+        }
+        .benefit-row { display: flex; flex-direction: column; gap: 2px; }
+        .benefit-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cp-gray-500); }
+        .benefit-value { font-size: 0.75rem; color: var(--cp-gray-300); }
+      </style></div></div></div></section><section id="community" class="section"><div class="container"><div class="section-header"><div class="section-title"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg></div><h2>Community Spotlight</h2></div></div><div class="grid-3"><div class="glass-card community-card"><h4 style="font-size: 0.9375rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true" style="color: var(--cp-amber);"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>Arts &amp; Culture</h4><ul class="community-list"><li>Bramble Arts Loft — Best New Theater Company (Chicago Reader 2025)</li><li>Redtwist Theatre Co. — Storefront Theater</li><li>Andersonville Galleria — Best Art Gallery</li><li>Chicago Filmmakers / Reeling LGBTQ+ Film Festival</li><li>Hamburger Mary's — Drag Shows</li></ul><style>
+                .community-card { padding: 1.5rem; }
+                .community-list {
+                  list-style: none; padding: 0;
+                  display: flex; flex-direction: column; gap: 0.5rem;
+                }
+                .community-list li {
+                  font-size: 0.8125rem; color: var(--cp-gray-300);
+                  padding: 0.5rem 0.75rem;
+                  border-radius: var(--radius-sm);
+                  background: rgba(255,255,255,0.02);
+                  border-left: 2px solid var(--cp-amber);
+                  transition: background 150ms;
+                }
+                .community-list li:hover { background: rgba(255,255,255,0.05); }
+              </style></div><div class="glass-card community-card"><h4 style="font-size: 0.9375rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true" style="color: var(--cp-amber);"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>Local Businesses</h4><ul class="community-list"><li>Women and Children First — Best Independent Bookstore</li><li>Alamo Shoes — Best Shoe Store</li><li>Gethsemane Garden Center — Best Garden Supply</li><li>Chicagoland Games Dice Dojo — Best Board Game Store</li><li>Cowboys and Astronauts — Best Men's Clothing</li><li>Broadway Antique Market — Vintage &amp; Home</li><li>Lilla Barn Clothing — Best Kids Clothing</li></ul><style>
+                .community-card { padding: 1.5rem; }
+                .community-list {
+                  list-style: none; padding: 0;
+                  display: flex; flex-direction: column; gap: 0.5rem;
+                }
+                .community-list li {
+                  font-size: 0.8125rem; color: var(--cp-gray-300);
+                  padding: 0.5rem 0.75rem;
+                  border-radius: var(--radius-sm);
+                  background: rgba(255,255,255,0.02);
+                  border-left: 2px solid var(--cp-amber);
+                  transition: background 150ms;
+                }
+                .community-list li:hover { background: rgba(255,255,255,0.05); }
+              </style></div><div class="glass-card community-card"><h4 style="font-size: 0.9375rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true" style="color: var(--cp-amber);"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>Community Organizations</h4><ul class="community-list"><li>Edgewater Chamber of Commerce</li><li>Loyola University Chicago</li><li>Emanuel Congregation</li><li>Senn High School</li></ul><style>
+                .community-card { padding: 1.5rem; }
+                .community-list {
+                  list-style: none; padding: 0;
+                  display: flex; flex-direction: column; gap: 0.5rem;
+                }
+                .community-list li {
+                  font-size: 0.8125rem; color: var(--cp-gray-300);
+                  padding: 0.5rem 0.75rem;
+                  border-radius: var(--radius-sm);
+                  background: rgba(255,255,255,0.02);
+                  border-left: 2px solid var(--cp-amber);
+                  transition: background 150ms;
+                }
+                .community-list li:hover { background: rgba(255,255,255,0.05); }
+              </style></div></div></div></section><section class="section" style="padding-bottom: 3rem;"><div class="container"><div class="glass-card" style="padding: 2.5rem; text-align: center; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(13, 148, 136, 0.08)); border: 1px solid rgba(37, 99, 235, 0.15);"><h2 style="margin-bottom: 0.75rem;">Get Involved in Your Community</h2><p style="max-width: 560px; margin: 0px auto 1.5rem; font-size: 1rem;">Build a culture where people want to know about their communities, activate resources relevant to them, and participate in the political process.</p><div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;"><a href="https://ova.elections.il.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Register to Vote</a><a href="https://www.the48thward.org/service-request" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Submit a Service Request</a><a href="https://mailchi.mp/the48thward/newsletter-signup" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Subscribe to Newsletter</a></div></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="footer-logo"><span style="font-size: 1.75rem;">🥧</span><div><h4 style="font-size: 1rem; margin: 0px;">Civic Pie</h4><p style="font-size: 0.75rem; color: var(--cp-gray-500); margin: 0px;">Get a slice of gov.</p></div></div><p style="font-size: 0.8125rem; color: var(--cp-gray-400); margin-top: 0.75rem; max-width: 320px;">A non-partisan civic engagement platform providing accurate, timely, and relevant information for every community.</p></div><div class="footer-col"><h5>Organize</h5><a href="#events">Local Events</a><a href="#community">Community Groups</a><a href="https://the48thward.org/blog/front-desk-volunteer" target="_blank" rel="noopener noreferrer">Volunteer</a></div><div class="footer-col"><h5>Learn</h5><a href="#officials">Your Officials</a><a href="#agencies">Agencies</a><a href="#legislation">Legislation</a><a href="#benefits">Benefits &amp; Resources</a></div><div class="footer-col"><h5>Act</h5><a href="https://ova.elections.il.gov/" target="_blank" rel="noopener noreferrer">Register to Vote</a><a href="https://chicagoelections.gov/" target="_blank" rel="noopener noreferrer">Find Your Polling Place</a><a href="https://311.chicago.gov/" target="_blank" rel="noopener noreferrer">Submit a 311 Request</a></div></div><div class="footer-bottom"><p>© 2026 Civic Pie — Non-partisan civic engagement for every district.</p><p style="font-size: 0.6875rem; color: var(--cp-gray-600);">Nothing is more American than pie. 🇺🇸</p></div></div><style>
+        .site-footer {
+          margin-top: auto;
+          padding: 3rem 0 1.5rem;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          background: rgba(10,22,40,0.5);
+        }
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr 1fr 1fr;
+          gap: 2rem;
+          margin-bottom: 2rem;
+        }
+        .footer-logo { display: flex; align-items: center; gap: 10px; }
+        .footer-col { display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-col h5 {
+          font-family: var(--font-display);
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--cp-gray-400);
+          margin-bottom: 0.25rem;
+        }
+        .footer-col a {
+          font-size: 0.8125rem;
+          color: var(--cp-gray-400);
+          transition: color 150ms;
+        }
+        .footer-col a:hover { color: var(--cp-white); }
+        .footer-bottom {
+          padding-top: 1.5rem;
+          border-top: 1px solid rgba(255,255,255,0.04);
+          text-align: center;
+        }
+        .footer-bottom p { font-size: 0.75rem; color: var(--cp-gray-500); }
+        @media (max-width: 768px) {
+          .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+          .footer-grid { grid-template-columns: 1fr; }
+        }
+      </style></footer></div>
+    <script type="module" src="/src/main.jsx"></script>
+  
+
+</body></html>
